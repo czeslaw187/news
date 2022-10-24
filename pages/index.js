@@ -15,12 +15,12 @@ export default function Home() {
       <div className='flex flex-col w-11/12 border-2 rounded-sm mx-auto my-3 p-3 shadow-md border-slate-500'>
         <ul>
           <li key={'labels'} className='grid grid-cols-6 w-full border-2 border-md border-green-700 my-2 p-1 text-end text-bolder'>
-            <p className='pr-4'>Date</p>
-            <p className='pr-[4rem]'>Country</p>
-            <p className='pr-[4rem]'>Impact</p>
-            <p className='pr-[4rem]'>Title</p>
-            <p className='pr-[4rem]'>Forecast</p>
-            <p className='pr-[4rem]'>Previous</p>
+            <p key={'date'} className='pr-4'>Date</p>
+            <p key={'country'} className='pr-[4rem]'>Country</p>
+            <p key={'impact'} className='pr-[4rem]'>Impact</p>
+            <p key={'title'} className='pr-[4rem]'>Title</p>
+            <p key={'forecast'} className='pr-[4rem]'>Forecast</p>
+            <p key={'previous'} className='pr-[4rem]'>Previous</p>
           </li>
           {
             newsList?.map((el,id)=>{

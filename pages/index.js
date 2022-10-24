@@ -34,5 +34,5 @@ export default function Home() {
 }
 
 function handleNews(){
-  return axios.get(process.env.NEXT_PUBLIC_URL + '/api/getNews')
+  return axios.get(process.env.NEXT_PUBLIC_URL + 'api/getNews')
 }

@@ -24,7 +24,7 @@ export default function Home() {
           </li>
           {
             newsList?.map((el,id)=>{
-              return <News item={el} id={id} />
+              return <News key={[id]} item={el} id={id} />
             })
           }
         </ul>

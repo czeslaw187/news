@@ -4,9 +4,8 @@ import { useState, useEffect } from 'react'
 
 export default function Home() {
   const [newsList,useNewsList] = useState([]) 
-
   return (
-    <div className='w-screen h-screen bg-gradient-to-br from-indigo-500'>
+    <div className='w-screen'>
       <div className='w-11/12 text-center mx-auto pt-5'>
         <h3 className='border-2 rounded-md border-slate-600 py-2'>My app</h3>
       </div>
@@ -14,9 +13,21 @@ export default function Home() {
         <button onClick={()=>{handleNews().then(resp=>{useNewsList(resp.data)})}} className='rounded-md w-full bg-lime-300 hover:bg-lime-200 active:shadow-inner active:shadow-black border-2 px-5 mx-auto py-1'>Fetch</button>
       </div>
       <div className='flex flex-col w-11/12 border-2 rounded-sm mx-auto my-3 p-3 shadow-md border-slate-500'>
-        {
-          newsList.message ?? <div>{newsList.message}</div>
-        }
+        <ul>
+          <li key={'labels'} className='grid grid-cols-6 w-full border-2 border-md border-green-700 my-2 p-1 text-end text-bolder'>
+            <p className='pr-4'>Date</p>
+            <p className='pr-[4rem]'>Country</p>
+            <p className='pr-[4rem]'>Impact</p>
+            <p className='pr-[4rem]'>Title</p>
+            <p className='pr-[4rem]'>Forecast</p>
+            <p className='pr-[4rem]'>Previous</p>
+          </li>
+          {
+            newsList?.map((el,id)=>{
+              return <News item={el} id={id} />
+            })
+          }
+        </ul>
       </div>
     </div>
   )

@@ -5,10 +5,7 @@ import { useState, useEffect } from 'react'
 export default function Home() {
   const [newsList,setNewsList] = useState([]) 
   return (
-    <div className='w-screen min-h-screen'>
-      <div className='w-11/12 text-center mx-auto pt-5'>
-        <h3 className='border-2 rounded-md border-slate-600 py-2'>My app</h3>
-      </div>
+    <div className='max-w-screen min-h-screen'>
       <div className="mx-auto w-5/12 text-center py-5">
         <button onClick={()=>{handleNews().then(resp=>{setNewsList(resp.data)})}} className='rounded-md w-full bg-lime-300 hover:bg-lime-200 active:shadow-inner active:shadow-black border-2 px-5 mx-auto py-1'>Fetch</button>
       </div>

@@ -1,15 +1,11 @@
 import Layout from "../components/Layout"
 import '../styles/globals.css'
+import { wrapper } from "../lib/store"
 
-export default function MyApp({
-  Component,
-  pageProps: { ...pageProps },
-}) {
-  return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-  )
-}
+const MyApp = ({Component, pageProps}) => (
+  <Layout>
+    <Component {...pageProps} />
+  </Layout>
+)
 
-
+export default wrapper.withRedux(MyApp)

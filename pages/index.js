@@ -1,13 +1,15 @@
-import axios from 'axios'
 import News from '../components/News'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
+import { useSelector, useDispatch} from 'react-redux'
+import {fetchNews}  from '../lib/newsSlice.js'
 
-export default function Home() {
-  const [newsList,setNewsList] = useState([]) 
+function Home() {
+  const dispatch = useDispatch()
+  const news = useSelector((state)=>state.news)
   return (
     <div className='max-w-screen min-h-screen'>
       <div className="mx-auto w-5/12 text-center py-5">
-        <button onClick={()=>{handleNews().then(resp=>{setNewsList(resp.data)})}} className='rounded-md w-full bg-lime-300 hover:bg-lime-200 active:shadow-inner active:shadow-black border-2 px-5 mx-auto py-1'>Fetch</button>
+        <button onClick={()=>dispatch(fetchNews())}  className='rounded-md w-full bg-lime-300 hover:bg-lime-200 active:shadow-inner active:shadow-black border-2 px-5 mx-auto py-1'>Fetch</button>
       </div>
       <div className='flex flex-col w-11/12 border-2 rounded-sm mx-auto my-3 p-3 shadow-md border-slate-500'>
         <ul>
@@ -18,11 +20,11 @@ export default function Home() {
             <p key={'title'}>Title</p>
             <p key={'forecast'}>Forecast</p>
             <p key={'previous'}>Previous</p>
-          </li>
-          {
-            newsList?.map((el,id)=>{
+          </li>{console.log(news, 'news')}
+          { 
+            news.news.length > 0 ? news.news.map((el,id)=>{
               return <News key={id} item={el} id={id} />
-            })
+            }): null
           }
         </ul>
       </div>
@@ -30,6 +32,4 @@ export default function Home() {
   )
 }
 
-function handleNews(){
-  return axios.get(process.env.NEXT_PUBLIC_URL + '/api/getNews')
-}
+export default Home

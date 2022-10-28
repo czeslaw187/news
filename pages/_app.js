@@ -3,7 +3,7 @@ import '../styles/globals.css'
 import { wrapper } from "../lib/store"
 
 const MyApp = ({Component, pageProps}) => (
-  <Layout>
+  <Layout {...pageProps}>
     <Component {...pageProps} />
   </Layout>
 )

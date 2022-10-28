@@ -1,23 +1,38 @@
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCurrencyNews } from "../lib/newsSlice";
 import CurNews from "../components/CurrencyNews";
+import { activeCurrency } from "../lib/newsSlice";
 
 function MyNews() {
     const dispatch = useDispatch()
     const currency = useSelector((state)=>state.news.currencyNews)
-
+    const whatsActive = useSelector((state)=>state.news.currencyActive)
+    const currencies = [
+        {currency:'AUD', text:'australian dollar forecast' },
+        {currency:'CAD', text:'canadian dollar forecast' },
+        {currency:'CHF', text:'swiss franc forecast' },
+        {currency:'EUR', text:'euro forecast' },
+        {currency:'GBP', text:'pound forecast' },
+        {currency:'JPY', text:'japanese yen forecast' },
+        {currency:'NZD', text:'new zealand dollar forecast' },
+        {currency:'USD', text:'united states dollar forecast' },
+    ]
+    console.log(whatsActive, 'currency')
     return ( 
         <div className="min-h-screen w-full pl-5 pt-5">
             <div className="w-11/12 flex flex-row justify-between mx-auto my-2 p-2 border-gray-300 rounded-md shadow-md">
-                <button onClick={()=>{dispatch(fetchCurrencyNews('australian dollar forecast'))}} className="w-[5rem] p-1 rounded-md bg-blue-300 shadow-xl hover:bg-blue-400 active:shadow-inner active:shadow-black">AUD</button>
-                <button onClick={()=>{dispatch(fetchCurrencyNews('canadian dollar forecast'))}} className="w-[5rem] p-1 rounded-md bg-blue-300 shadow-xl hover:bg-blue-400 active:shadow-inner active:shadow-black">CAD</button>
-                <button onClick={()=>{dispatch(fetchCurrencyNews('swiss franc forecast'))}} className="w-[5rem] p-1 rounded-md bg-blue-300 shadow-xl hover:bg-blue-400 active:shadow-inner active:shadow-black">CHF</button>
-                <button onClick={()=>{dispatch(fetchCurrencyNews('euro forecast'))}} className="w-[5rem] p-1 rounded-md bg-blue-300 shadow-xl hover:bg-blue-400 active:shadow-inner active:shadow-black">EUR</button>
-                <button onClick={()=>{dispatch(fetchCurrencyNews('pound forecast'))}} className="w-[5rem] p-1 rounded-md bg-blue-300 shadow-xl hover:bg-blue-400 active:shadow-inner active:shadow-black">GBP</button>
-                <button onClick={()=>{dispatch(fetchCurrencyNews('japanese yen forecast'))}} className="w-[5rem] p-1 rounded-md bg-blue-300 shadow-xl hover:bg-blue-400 active:shadow-inner active:shadow-black">JPY</button>
-                <button onClick={()=>{dispatch(fetchCurrencyNews('new zealand dollar forecast'))}} className="w-[5rem] p-1 rounded-md bg-blue-300 shadow-xl hover:bg-blue-400 active:shadow-inner active:shadow-black">NZD</button>
-                <button onClick={()=>{dispatch(fetchCurrencyNews('united states dollar forecast'))}} className="w-[5rem] p-1 rounded-md bg-blue-300 shadow-xl hover:bg-blue-400 active:shadow-inner active:shadow-black">USD</button>
-            </div>            
+                {
+                    currencies.map((el,id)=>{
+                        return <button 
+                                    key={id} 
+                                    id={el.currency} 
+                                    onClick={(e)=>{dispatch(activeCurrency(e.target.id)); dispatch(fetchCurrencyNews(el.text))}} 
+                                    className={el.currency == whatsActive ? "w-[5rem] p-1 rounded-md bg-blue-400 shadow-xl active:shadow-inner active:shadow-black": "w-[5rem] p-1 rounded-md bg-blue-300 shadow-xl hover:bg-blue-400 active:shadow-inner active:shadow-black"}>
+                                        {el.currency}
+                               </button>
+                    })
+                }
+            </div>
             <ul>
                 {
                     currency ? currency.map((el, id)=>{

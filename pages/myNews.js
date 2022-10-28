@@ -29,4 +29,4 @@ function MyNews() {
      );
 }
 
-export default myNews;
+export default MyNews;

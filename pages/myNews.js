@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCurrencyNews } from "../lib/newsSlice";
 import CurNews from "../components/CurrencyNews";
 
-function myNews() {
+function MyNews() {
     const dispatch = useDispatch()
     const currency = useSelector((state)=>state.news.currencyNews)
 

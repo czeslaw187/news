@@ -20,7 +20,7 @@ function Home() {
             <p key={'title'}>Title</p>
             <p key={'forecast'}>Forecast</p>
             <p key={'previous'}>Previous</p>
-          </li>{console.log(news, 'news')}
+          </li>
           { 
             news.news.length > 0 ? news.news.map((el,id)=>{
               return <News key={id} item={el} id={id} />

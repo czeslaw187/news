@@ -11,7 +11,7 @@ function MyNews() {
             <div className="w-11/12 flex flex-row justify-between mx-auto my-2 p-2 border-gray-300 rounded-md shadow-md">
                 <button onClick={()=>{dispatch(fetchCurrencyNews('australian dollar forecast'))}} className="w-[5rem] p-1 rounded-md bg-blue-300 shadow-xl hover:bg-blue-400 active:shadow-inner active:shadow-black">AUD</button>
                 <button onClick={()=>{dispatch(fetchCurrencyNews('canadian dollar forecast'))}} className="w-[5rem] p-1 rounded-md bg-blue-300 shadow-xl hover:bg-blue-400 active:shadow-inner active:shadow-black">CAD</button>
-                <button onClick={()=>{dispatch(fetchCurrencyNews('swiss frank forecast'))}} className="w-[5rem] p-1 rounded-md bg-blue-300 shadow-xl hover:bg-blue-400 active:shadow-inner active:shadow-black">CHF</button>
+                <button onClick={()=>{dispatch(fetchCurrencyNews('swiss franc forecast'))}} className="w-[5rem] p-1 rounded-md bg-blue-300 shadow-xl hover:bg-blue-400 active:shadow-inner active:shadow-black">CHF</button>
                 <button onClick={()=>{dispatch(fetchCurrencyNews('euro forecast'))}} className="w-[5rem] p-1 rounded-md bg-blue-300 shadow-xl hover:bg-blue-400 active:shadow-inner active:shadow-black">EUR</button>
                 <button onClick={()=>{dispatch(fetchCurrencyNews('pound forecast'))}} className="w-[5rem] p-1 rounded-md bg-blue-300 shadow-xl hover:bg-blue-400 active:shadow-inner active:shadow-black">GBP</button>
                 <button onClick={()=>{dispatch(fetchCurrencyNews('japanese yen forecast'))}} className="w-[5rem] p-1 rounded-md bg-blue-300 shadow-xl hover:bg-blue-400 active:shadow-inner active:shadow-black">JPY</button>

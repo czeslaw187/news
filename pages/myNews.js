@@ -17,7 +17,6 @@ function MyNews() {
         {currency:'NZD', text:'new zealand dollar forecast' },
         {currency:'USD', text:'united states dollar forecast' },
     ]
-    console.log(whatsActive, 'currency')
     return ( 
         <div className="min-h-screen w-full pl-5 pt-5">
             <div className="w-11/12 flex flex-row justify-between mx-auto my-2 p-2 border-gray-300 rounded-md shadow-md">

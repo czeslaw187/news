@@ -1,11 +1,17 @@
 import News from '../components/News'
 import { useEffect } from 'react'
 import { useSelector, useDispatch} from 'react-redux'
-import {fetchNews}  from '../lib/newsSlice.js'
+import { fetchNews } from '../lib/newsSlice'
+import { activePage, } from '../lib/newsSlice'
 
 function Home() {
   const dispatch = useDispatch()
   const news = useSelector((state)=>state.news)
+
+useEffect(()=>{
+  dispatch(activePage('Home'))
+},[dispatch])
+
   return (
     <div className='max-w-screen min-h-screen'>
       <div className="mx-auto w-5/12 text-center py-5">

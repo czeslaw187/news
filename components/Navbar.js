@@ -6,8 +6,9 @@ function Navbar() {
     const dispatch = useDispatch()
     const whatsActive = useSelector(state=>state.news.pageActive)
     const pages = [
+        {title: 'Scratcher', route: '/newsScratcher'},
         {title: 'News', route: '/myNews'},
-        {title: 'Home', route: '/'}
+        {title: 'Home', route: '/'},
     ]
     return ( 
         <div className="w-full h-[3rem] bg-gradient-to-br from-lime-200 py-3">

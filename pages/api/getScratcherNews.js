@@ -4,11 +4,11 @@ export default async function getScratcherNews(req, res) {
     const {currency} = req.body
     const options = {
         method: 'GET',
-        url: 'https://newscatcher.p.rapidapi.com/v1/search',
+        url: process.env.NEXT_PUBLIC_NEWSCRATCHERAPI_URL + '/search',
         params: {q: currency, lang: 'en', sort_by: 'relevancy', page: '1', media: 'True'},
         headers: {
-          'X-RapidAPI-Key': '8853e00f71mshdf8197d0584c60ep1d9958jsn7c7047c9aa16',
-          'X-RapidAPI-Host': 'newscatcher.p.rapidapi.com'
+          'X-RapidAPI-Key': process.env.NEXT_PUBLIC_NEWSCRATCHERAPI_KEY,
+          'X-RapidAPI-Host': process.env.NEXT_PUBLIC_NEWSCRATCHERAPI_HOST
         }
       };
       

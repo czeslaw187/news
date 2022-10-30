@@ -4,13 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 
 function ScratchArt({item, id}) {
-    const [open, useOpen] = useState(false)
+    const [open, setOpen] = useState(false)
     return ( 
         <li className="w-11/12 border-2 rounded-md shadow-xl h-fit my-3 mx-auto p-2">
             <Link href={item.link}>
                 <a href="#" className="text-lg border-2 border-b-black hover:text-blue-600">{item.title}</a>
             </Link>
-            <p onClick={()=>{useOpen(!open)}} className="w-full text-center hover:opacity-75 hover:bg-indigo-200"><FontAwesomeIcon icon={open ? faCaretUp : faCaretDown} /></p>
+            <p onClick={()=>{setOpen(!open)}} className="w-full text-center hover:opacity-75 hover:bg-indigo-200"><FontAwesomeIcon icon={open ? faCaretUp : faCaretDown} /></p>
             <p className={open ? "text-base h-fit transition-transform duration-500" : "text-base h-0 overflow-hidden"}>
                 {item.summary}
             </p>

@@ -4,7 +4,7 @@ export default async function getScratcherNews(req, res) {
     const {currency} = req.body
     const options = {
         method: 'GET',
-        url: process.env.NEXT_PUBLIC_NEWSCRATCHERAPI_URL + '/search',
+        url: `${process.env.NEXT_PUBLIC_NEWSCRATCHERAPI_URL}/search`,
         params: {q: currency, lang: 'en', sort_by: 'relevancy', page: '1', media: 'True'},
         headers: {
           'X-RapidAPI-Key': process.env.NEXT_PUBLIC_NEWSCRATCHERAPI_KEY,

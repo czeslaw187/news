@@ -11,7 +11,7 @@ function ScratchArt({item, id}) {
                 <a href="#" className="text-lg border-2 border-b-black hover:text-blue-600">{item.title}</a>
             </Link>
             <p onClick={()=>{setOpen(!open)}} className="w-full text-center hover:opacity-75 hover:bg-indigo-200"><FontAwesomeIcon icon={open ? faCaretUp : faCaretDown} /></p>
-            <p className={open ? "text-base h-fit transition-transform duration-500" : "text-base h-0 overflow-hidden"}>
+            <p className={open ? "text-base animate-dropdown overflow-auto" : "text-base overflow-hidden h-0"}>
                 {item.summary}
             </p>
             <p className="text-base">Source: <span className="font-bold">{item.author}</span></p>

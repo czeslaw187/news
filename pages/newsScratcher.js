@@ -15,13 +15,11 @@ function NewScratcher() {
         {currency:'NZD', text:'new zealand dollar forecast' },
         {currency:'USD', text:'united states dollar forecast' },
     ]
-    const [whatsActive, setWhatsActive] = useState("USD")
+
+    const [whatsActive, setWhatsActive] = useState("AUD")
     const dispatch = useDispatch()
-    useEffect(()=>{
-        dispatch(fetchScratcherNews('united states dollar forecast'))
-    },[dispatch])
     const scratcherNews = useSelector(state=>state.news.scratcherNews)
-    console.log(scratcherNews)
+    
     return ( 
         <div className='max-w-screen min-h-screen'>
             <div className="w-full">
@@ -34,7 +32,7 @@ function NewScratcher() {
                                     key={id} 
                                     id={el.currency} 
                                     onClick={(e)=>{setWhatsActive(el.text); dispatch(fetchScratcherNews(el.text))}} 
-                                    className={whatsActive == el.text ? "w-[5rem] p-1 rounded-md bg-blue-400 shadow-xl active:shadow-inner active:shadow-black": "w-[5rem] p-1 rounded-md bg-blue-300 shadow-xl hover:bg-blue-400 active:shadow-inner active:shadow-black"}>
+                                    className={whatsActive && whatsActive == el.text ? "w-[5rem] p-1 rounded-md bg-blue-400 shadow-xl active:shadow-inner active:shadow-black": "w-[5rem] p-1 rounded-md bg-blue-300 shadow-xl hover:bg-blue-400 active:shadow-inner active:shadow-black"}>
                                         {el.currency}
                                </button>
                     })

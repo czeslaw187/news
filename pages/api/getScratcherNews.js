@@ -13,7 +13,7 @@ export default async function getScratcherNews(req, res) {
       };
       
       axios.request(options).then(function (response) {
-          res.json(response.data.articles);
+          return res.json(response.data.articles);
       }).catch(function (error) {
           return res.json({message: error.message});
       });
